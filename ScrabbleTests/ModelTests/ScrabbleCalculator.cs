@@ -23,7 +23,7 @@ namespace Scrabble.Tests
         [TestMethod]
         public void GetUserWord_AccessUserWordField_String()
         {
-            string userInput = "Jason";
+            string userInput = "jason";
             ScrabbleGame newScrabbleGame = new ScrabbleGame(userInput);
             string word = newScrabbleGame.UserWord;
             Assert.AreEqual(userInput, word);
@@ -40,10 +40,21 @@ namespace Scrabble.Tests
         [TestMethod]
         public void GetWordScore_AccessWordScore_Int()
         {
-            string userInput = "Jason";
+            string userInput = "jason";
             ScrabbleGame newScrabbleGame = new ScrabbleGame(userInput);
             int score = newScrabbleGame.WordScore;
             Assert.AreEqual(0, score);
+        }
+
+        [TestMethod]
+        public void CalculateWordScore_AddUpPointsPerWord_Int()
+        {
+            string userInput = "cat";
+            int expectedScore = 5;
+            ScrabbleGame scrabbleGame = new ScrabbleGame(userInput);
+            scrabbleGame.CalculateWordScore();
+            int realScore = scrabbleGame.WordScore;
+            Assert.AreEqual(expectedScore, realScore);
         }
 
     }
