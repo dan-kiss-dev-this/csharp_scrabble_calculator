@@ -1,4 +1,6 @@
-namespace ProjectName
+using Scrabble.Models;
+
+namespace Scrabble
 {
     class Program
     {
