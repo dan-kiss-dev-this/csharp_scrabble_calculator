@@ -1,13 +1,20 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using Scrabble.Models;
+using System;
 
 
 namespace Scrabble.Tests
 {
     [TestClass]
-    public class ScrabbleGameTests
+    public class ScrabbleGameTests : IDisposable
     {
+        public void Dispose()
+        {
+            ScrabbleGame.GameCollection.Clear();
+            // alternate method below
+            // ScrabbleGame.GameCollection = new List<ScrabbleGame> { };
+        }
         // Test methods go here
         [TestMethod]
         // public void NameOfMethodWeAreTesting_DescriptionOfBehavior_ExpectedReturnValue()
@@ -55,6 +62,14 @@ namespace Scrabble.Tests
             ScrabbleGame scrabbleGame = new ScrabbleGame(userInput);
             int realScore = scrabbleGame.WordScore;
             Assert.AreEqual(expectedScore, realScore);
+        }
+
+        [TestMethod]
+        public void SetGameCollection_AddInstanceofScrabbleGameToList_List()
+        {
+            string userInput = "cat";
+            ScrabbleGame scrabbleGame = new ScrabbleGame(userInput);
+            Assert.AreEqual(1, ScrabbleGame.GameCollection.Count);
         }
 
     }
