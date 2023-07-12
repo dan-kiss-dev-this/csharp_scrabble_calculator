@@ -1,18 +1,23 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProjectName.Models;
+using System.Collections.Generic;
+using Scrabble.Models;
 
-namespace ProjectName.Tests
+
+namespace Scrabble.Tests
 {
     [TestClass]
-    public class ClassNameTests
+    public class ScrabbleGameTests
     {
         // Test methods go here
         [TestMethod]
-        public void NameOfMethodWeAreTesting_DescriptionOfBehavior_ExpectedReturnValue()
+        // public void NameOfMethodWeAreTesting_DescriptionOfBehavior_ExpectedReturnValue()
+        public void ScrabbleGameConstructor_InstantiateClass_ScrabbleGame()
         {
+        ScrabbleGame newScrabbleGame = new ScrabbleGame("cat");
+        Assert.AreEqual(typeof(ScrabbleGame), newScrabbleGame.GetType());
         // any necessary logic to prep for test; instantiating new classes, etc.
         // we can also use the arrange, act, assert organization in any test. 
-        Assert.AreEqual(ExpectedResult, CodeToTest);
+        // Assert.AreEqual(ExpectedResult, CodeToTest);
         }
     }
 }
