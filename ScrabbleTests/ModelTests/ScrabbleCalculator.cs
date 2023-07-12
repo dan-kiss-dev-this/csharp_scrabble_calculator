@@ -41,9 +41,10 @@ namespace Scrabble.Tests
         public void GetWordScore_AccessWordScore_Int()
         {
             string userInput = "jason";
+            int expectedValue = 12;
             ScrabbleGame newScrabbleGame = new ScrabbleGame(userInput);
             int score = newScrabbleGame.WordScore;
-            Assert.AreEqual(0, score);
+            Assert.AreEqual(expectedValue, score);
         }
 
         [TestMethod]
@@ -52,7 +53,6 @@ namespace Scrabble.Tests
             string userInput = "cat";
             int expectedScore = 5;
             ScrabbleGame scrabbleGame = new ScrabbleGame(userInput);
-            scrabbleGame.CalculateWordScore();
             int realScore = scrabbleGame.WordScore;
             Assert.AreEqual(expectedScore, realScore);
         }

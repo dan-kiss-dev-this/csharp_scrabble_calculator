@@ -14,9 +14,10 @@ namespace Scrabble.Models
         public ScrabbleGame(string userWord)
         {
             UserWord = userWord.ToLower();
+            CalculateWordScore();
         }
 
-        public void CalculateWordScore()
+        private void CalculateWordScore()
         {
             for( int i = 0; i < UserWord.Length; i++)
             {
