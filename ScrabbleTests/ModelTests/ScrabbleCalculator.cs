@@ -19,5 +19,15 @@ namespace Scrabble.Tests
         // we can also use the arrange, act, assert organization in any test. 
         // Assert.AreEqual(ExpectedResult, CodeToTest);
         }
+
+        [TestMethod]
+        public void GetUserWord_AccessUserWordField_String()
+        {
+            string userInput = "Jason";
+            ScrabbleGame newScrabbleGame = new ScrabbleGame(userInput);
+            string word = newScrabbleGame.UserWord;
+            Assert.AreEqual(userInput, word);
+        }
+        
     }
 }
