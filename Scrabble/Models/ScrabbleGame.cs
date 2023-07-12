@@ -11,6 +11,27 @@ namespace Scrabble.Models
 
         public static List<ScrabbleGame> GameCollection { get; set;} = new List<ScrabbleGame> {};
 
+        public static int HighScore { get; set; }
+        public static string HighScoreWord { get; set; }
+
+        private void CalculateHighScore()
+        {
+            if(GameCollection.Count == 1)
+            {
+                HighScore = WordScore;
+                HighScoreWord = UserWord;
+            } else{
+                for( int i = 0; i < GameCollection.Count; i++)
+            {
+               if(GameCollection[i].WordScore>HighScore)
+               {
+                HighScore = GameCollection[i].WordScore;
+                HighScoreWord = GameCollection[i].UserWord;
+               }
+            }
+            }
+        }
+
         public int WordScore { get; set; }
 
         public ScrabbleGame(string userWord)
@@ -18,6 +39,7 @@ namespace Scrabble.Models
             UserWord = userWord.ToLower();
             CalculateWordScore();
             GameCollection.Add(this);
+            CalculateHighScore();
         }
 
         private void CalculateWordScore()

@@ -72,5 +72,18 @@ namespace Scrabble.Tests
             Assert.AreEqual(1, ScrabbleGame.GameCollection.Count);
         }
 
+        [TestMethod]
+        public void GetHighScore_AddHighScore_void()
+        {
+            string userInput = "cat";
+            string userInput2 = "jazz";
+            string userInput3 = "hi";
+            ScrabbleGame scrabbleGame = new ScrabbleGame(userInput);
+            ScrabbleGame scrabbleGame2 = new ScrabbleGame(userInput2);
+            ScrabbleGame scrabbleGame3 = new ScrabbleGame(userInput3);
+            Assert.AreEqual(29, ScrabbleGame.HighScore);
+            Assert.AreEqual("jazz", ScrabbleGame.HighScoreWord);
+        }
+
     }
 }
